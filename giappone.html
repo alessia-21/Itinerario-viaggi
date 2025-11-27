@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Il Mio Itinerario – Giappone 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="itinerari.html"><img src="img/IMG_0008.JPG" alt="">Itinerari</a></li>
+      <li><a href="scopri.html"><img src="img/IMG_0009.JPG" alt="">Scopri di più</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <aside id="sidebar">
+      <h1>Giappone 2026</h1>
+      <p>Benvenuto nel diario del mio viaggio</p>
+      <ul id="days-list">
+        <!-- I giorni vengono popolati da JS (functions.js) -->
+      </ul>
+    </aside>
+
+    <main id="content">
+      <div id="default-view">
+        <h2>Seleziona un giorno dall’elenco</h2>
+        <div class="gallery">
+          <img src="img/IMG_0001.JPG" alt="Tokyo">
+          <img src="img/IMG_0004.JPG" alt="Kyoto">
+          <img src="img/IMG_0006.JPG" alt="Kanazawa">
+          <img src="img/IMG_0007.JPG" alt="Osaka">
+        </div>
+      </div>
+
+      <div id="day-view"></div>
+    </main>
+  </div>
+
+  <script type="module" src="functions.js"></script>
+</body>
+</html>

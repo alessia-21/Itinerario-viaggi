@@ -158,3 +158,31 @@ main {
 .back-btn:hover {
   background-color: #a678ff;
 }
+
+.home {
+  padding: 3rem;
+  text-align: center;
+}
+
+.lista-itinerari {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-itinerari li {
+  background: #d8b9f2;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.lista-itinerari li:hover {
+  background: #c19ee0;
+}
+
+.lista-itinerari a {
+  text-decoration: none;
+  color: #3d0066;
+  font-weight: bold;
+}
