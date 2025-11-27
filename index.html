@@ -3,25 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Il Mio Itinerario</title>
+  <!-- Collego il CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-	<h1>Il Mio Itinerario</h1>
-</header>
-  <nav>
-    <a href="giorno1.html">Giorno 1</a>
-    <a href="giorno2.html">Giorno 2</a>
-    <a href="giorno3.html">Giorno 3</a>
-  </nav>
+  <div class="container">
+    <!-- Colonna sinistra -->
+    <aside id="sidebar">
+      <h1>Il Mio Itinerario</h1>
+      <p>Benvenuto nel diario dei miei viaggi</p>
+      <ul>
+        <li onclick="openDay('giorno1')">
+          <h2>Giorno 1</h2>
+          <p>Visita al centro storico</p>
+        </li>
+        <li onclick="openDay('giorno2')">
+          <h2>Giorno 2</h2>
+          <p>Escursione in montagna</p>
+        </li>
+        <li onclick="openDay('giorno3')">
+          <h2>Giorno 3</h2>
+          <p>Relax al mare</p>
+        </li>
+      </ul>
+    </aside>
 
-  <main>
-    <h2>Introduzione</h2>
-    <p>Qui troverai le tappe del mio viaggio, organizzate giorno per giorno.</p>
-  </main>
+    <!-- Colonna destra -->
+    <main id="content">
+      <h2>Seleziona un giorno dall’elenco</h2>
+    </main>
+  </div>
 
-  <footer>
-    <p>© 2025 Alessia - Tutti i diritti riservati</p>
-  </footer>
+  <!-- Collego lo script JS -->
+  <script src="script.js"></script>
 </body>
 </html>
