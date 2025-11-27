@@ -40,6 +40,12 @@ aside li:hover {
   background: #c19ee0;
 }
 
+aside li:focus,
+aside li:active {
+  background: #d8b9f2;
+  outline: none;
+}
+
 main {
   flex: 1;
   padding: 2rem;
