@@ -3,38 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Il Mio Itinerario</title>
-  <!-- Collego il CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <!-- Colonna sinistra -->
+  
     <aside id="sidebar">
       <h1>Il Mio Itinerario</h1>
       <p>Benvenuto nel diario dei miei viaggi</p>
       <ul>
-        <li onclick="openDay('giorno1')">
-          <h2>Giorno 1</h2>
-          <p>Visita al centro storico</p>
-        </li>
-        <li onclick="openDay('giorno2')">
-          <h2>Giorno 2</h2>
-          <p>Escursione in montagna</p>
-        </li>
-        <li onclick="openDay('giorno3')">
-          <h2>Giorno 3</h2>
-          <p>Relax al mare</p>
-        </li>
+        <li onclick="openDay('giorno1')">Giorno 1 – Partenza da Roma</li>
+        <li onclick="openDay('giorno2')">Giorno 2 – Seul</li>
+        <li onclick="openDay('giorno3')">Giorno 3 – Tokyo</li>
+        <li onclick="openDay('giorno4')">Giorno 4 - Tokyo</li>
+        <li onclick="openDay('giorno5')">Giorno 5 – Tokyo</li>
+        <li onclick="openDay('giorno6')">Giorno 6 – Kamakura</li>
+        <li onclick="openDay('giorno7')">Giorno 7 – Kanazawa</li>
+        <li onclick="openDay('giorno8')">Giorno 8 – Shirakawa-go -> Kyoto</li>
+        <li onclick="openDay('giorno9')">Giorno 9 – Kyoto</li>
+        <li onclick="openDay('giorno10')">Giorno 10 - Kyoto</li>
+        <li onclick="openDay('giorno11')">Giorno 11 - Kyoto</li>
+        <li onclick="openDay('giorno12')">Giorno 12 - Himeji -> Miyajima</li>
+        <li onclick="openDay('giorno13')">Giorno 13 - Hiroshima -> Osaka</li>
+        <li onclick="openDay('giorno14')">Giorno 14 - Nara - Osaka</li>
+        <li onclick="openDay('giorno15')">Giorno 15 – Osaka</li>
+        <li onclick="openDay('giorno16')">Giorno 16 - Universal Studios</li>
+        <li onclick="openDay('giorno17')">Giorno 17 - Seul</li>
+        <li onclick="openDay('giorno18')">Giorno 18 – Roma</li>
       </ul>
     </aside>
 
-    <!-- Colonna destra -->
     <main id="content">
       <h2>Seleziona un giorno dall’elenco</h2>
     </main>
   </div>
-
-  <!-- Collego lo script JS -->
-  <script src="script.js"></script>
+  <script src="functions.js"></script>
 </body>
 </html>
