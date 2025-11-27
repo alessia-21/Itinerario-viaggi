@@ -98,12 +98,18 @@ main {
   }
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 #day-view {
   position: fixed;    
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;                 
+  height: 100vh;             
   background: linear-gradient(135deg, #e6ccff, #d1b3ff, #b399ff);
   overflow-y: auto;             
   padding: 20px;
@@ -112,23 +118,9 @@ main {
   z-index: 999;                 
 }
 
-.day-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.back-btn {
-  background-color: #c8a2ff;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.back-btn:hover {
-  background-color: #a678ff;
+@supports (-webkit-touch-callout: none) {
+  #day-view {
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
 }
