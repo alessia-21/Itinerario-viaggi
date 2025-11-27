@@ -38,16 +38,8 @@ export function openDay(day) {
   });
 
   html += `</ul>`;
-
-  if (dati.noteFinali && dati.noteFinali.length > 0) {
-    html += `<h3>Note finali</h3><ul class="note-finali">`;
-    dati.noteFinali.forEach(nota => {
-      html += `<li>${nota}</li>`;
-    });
-    html += `</ul>`;
-  }
-
   dayView.innerHTML = html;
+
   document.getElementById('back-btn').addEventListener('click', goBack);
 }
 
@@ -57,6 +49,30 @@ function goBack() {
   document.getElementById('default-view').style.display = 'block';
 }
 
+/* --- Carosello --- */
+function initCarosello() {
+  const slides = document.querySelector(".slides");
+  if (!slides) return; // se non c'è il carosello in questa pagina, esci
+
+  const images = document.querySelectorAll(".slides img");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+
+  let index = 0;
+
+  function showSlide(i) {
+    index = (i + images.length) % images.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  prevBtn.addEventListener("click", () => showSlide(index - 1));
+  nextBtn.addEventListener("click", () => showSlide(index + 1));
+
+  // autoplay ogni 5 secondi
+  setInterval(() => showSlide(index + 1), 5000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  setTrip(jpDays);
+  setTrip(jpDays);   // inizializza sidebar
+  initCarosello();         // inizializza carosello se presente
 });
