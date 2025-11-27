@@ -97,3 +97,31 @@ main {
     width: 80px;
   }
 }
+
+#day-view {
+  background: linear-gradient(135deg, #e6ccff, #d1b3ff, #b399ff);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.back-btn {
+  background-color: #c8a2ff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #a678ff;
+}

@@ -7,7 +7,13 @@ function openDay(day) {
   dayView.style.display = 'block';
 
   const dati = days[day];
-  let html = `<h2>${dati.titolo}</h2><ul class="agenda">`;
+  let html = `
+    <div class="day-header">
+      <button id="back-btn" class="back-btn">← Torna indietro</button>
+      <h2>${dati.titolo}</h2>
+    </div>
+    <ul class="agenda">
+  `;
 
   dati.attivita.forEach(item => {
     html += `<li>
@@ -26,7 +32,6 @@ function openDay(day) {
     html += `</ul>`;
   }
 
-  html += `<button id="back-btn">Torna indietro</button>`;
   dayView.innerHTML = html;
 
   document.getElementById('back-btn').addEventListener('click', goBack);
