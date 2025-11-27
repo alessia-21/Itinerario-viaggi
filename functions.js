@@ -1,4 +1,4 @@
-import {days} from "functions.js";
+import {days} from "./utils.js";
 
 function openDay(day) {
   document.getElementById('sidebar').style.display = 'none';
