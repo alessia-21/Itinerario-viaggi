@@ -1,4 +1,4 @@
-export const days = {
+export const jpDays = {
   giorno1: {
     titolo: "Partenza da Roma",
     attivita: [

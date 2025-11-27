@@ -1,12 +1,27 @@
-import { days } from "./utils.js";
+import { jpDays } from "./utils.js";
 
-function openDay(day) {
+let currentTrip = jpDays;
+
+function setTrip(trip) {
+  currentTrip = trip;
+  const sidebar = document.getElementById('days-list');
+  sidebar.innerHTML = "";
+  Object.keys(currentTrip).forEach(dayKey => {
+    const li = document.createElement("li");
+    li.textContent = `${dayKey} – ${currentTrip[dayKey].titolo}`;
+    li.setAttribute("data-day", dayKey);
+    li.addEventListener("click", () => openDay(dayKey));
+    sidebar.appendChild(li);
+  });
+}
+
+export function openDay(day) {
   document.getElementById('sidebar').style.display = 'none';
   document.getElementById('default-view').style.display = 'none';
   const dayView = document.getElementById('day-view');
   dayView.style.display = 'block';
 
-  const dati = days[day];
+  const dati = currentTrip[day];
   let html = `
     <div class="day-header">
       <button id="back-btn" class="back-btn">← Torna indietro</button>
@@ -33,7 +48,6 @@ function openDay(day) {
   }
 
   dayView.innerHTML = html;
-
   document.getElementById('back-btn').addEventListener('click', goBack);
 }
 
@@ -44,10 +58,5 @@ function goBack() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('#days-list li').forEach(li => {
-    li.addEventListener('click', () => {
-      const day = li.getAttribute('data-day');
-      openDay(day);
-    });
-  });
+  setTrip(jpDays);
 });
