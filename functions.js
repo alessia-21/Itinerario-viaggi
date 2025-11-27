@@ -6,11 +6,27 @@ function openDay(day) {
   const dayView = document.getElementById('day-view');
   dayView.style.display = 'block';
 
-  let html = `<h2>${day.replace('giorno','Giorno ')}</h2><ul class="agenda">`;
-  days[day].forEach(item => {
-    html += `<li><span class="ora">${item.ora}</span> – ${item.attivita}</li>`;
+  const dati = days[day];
+  let html = `<h2>${dati.titolo}</h2><ul class="agenda">`;
+
+  dati.attivita.forEach(item => {
+    html += `<li>
+      <span class="ora">${item.ora}</span> – ${item.attivita}
+      ${item.nota ? `<div class="nota">(${item.nota})</div>` : ""}
+    </li>`;
   });
-  html += `</ul><button id="back-btn">Torna indietro</button>`;
+
+  html += `</ul>`;
+
+  if (dati.noteFinali && dati.noteFinali.length > 0) {
+    html += `<h3>Note finali</h3><ul class="note-finali">`;
+    dati.noteFinali.forEach(nota => {
+      html += `<li>${nota}</li>`;
+    });
+    html += `</ul>`;
+  }
+
+  html += `<button id="back-btn">Torna indietro</button>`;
   dayView.innerHTML = html;
 
   document.getElementById('back-btn').addEventListener('click', goBack);
