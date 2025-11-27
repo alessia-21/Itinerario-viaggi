@@ -52,7 +52,7 @@ function goBack() {
 /* --- Carosello --- */
 function initCarosello() {
   const slides = document.querySelector(".slides");
-  if (!slides) return; // se non c'è il carosello in questa pagina, esci
+  if (!slides) return;
 
   const images = document.querySelectorAll(".slides img");
   const prevBtn = document.querySelector(".prev");
@@ -67,6 +67,9 @@ function initCarosello() {
 
   prevBtn.addEventListener("click", () => showSlide(index - 1));
   nextBtn.addEventListener("click", () => showSlide(index + 1));
+
+  // mostra subito la prima slide
+  showSlide(0);
 
   // autoplay ogni 5 secondi
   setInterval(() => showSlide(index + 1), 5000);
