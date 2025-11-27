@@ -18,9 +18,11 @@ function goBack() {
   document.getElementById('content').innerHTML = "<h2>Seleziona un giorno dall’elenco</h2>";
 }
 
-document.querySelectorAll('#days-list li').forEach(li => {
-  li.addEventListener('click', () => {
-    const day = li.getAttribute('data-day');
-    openDay(day);
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('#days-list li').forEach(li => {
+    li.addEventListener('click', () => {
+      const day = li.getAttribute('data-day');
+      openDay(day);
+    });
   });
 });
