@@ -1,4 +1,4 @@
-const days = {
+export const days = {
   giorno1: [
     { ora: "09:00", attivita: "Colazione in piazza" },
     { ora: "10:30", attivita: "Visita al Duomo" },
@@ -102,4 +102,3 @@ const days = {
     { ora: "15:00", attivita: "Passeggiata nel centro storico" }
   ],
 };
-export {days};
