@@ -3,16 +3,22 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: 'Nunito', sans-serif;
-  background: linear-gradient(135deg, #e6d6f5, #cbb5e8);
-  color: #3d0066;
-} 
+  background: #fdfdfd; /* sfondo bianco */
+  color: #333;         /* testo più leggibile */
+}
 
 h1, h2, h3 {
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
 }
 
-
+p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b0082; /* viola scuro leggibile */
+  margin-bottom: 1rem;
+}
 
 .navbar {
   background-color: #333;
@@ -280,17 +286,22 @@ main {
 }
 
 .btn-primary {
-  background: #b57edc;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #4b0082, #6a0dad); /* viola scuro elegante */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px; /* pill shape */
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background: #9b59b6;
+  background: linear-gradient(135deg, #6a0dad, #8a2be2); /* tonalità più chiara al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
 }
 
 .nota {
@@ -316,3 +327,23 @@ main {
 .trip-day-item:hover {
   background: #f0f0f0;
 }
+
+.map-btn {
+  background: linear-gradient(135deg, #4b0082, #6a0dad); /* viola scuro elegante */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.map-btn:hover {
+  background: linear-gradient(135deg, #6a0dad, #8a2be2);
+  transform: translateY(-2px);
+}
+
