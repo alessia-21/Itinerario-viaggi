@@ -271,3 +271,71 @@ main {
   flex: 1;              /* occupa tutto lo spazio disponibile */
   min-height: 400px;    /* altezza minima per sicurezza */
 }
+
+.hero {
+  background: url('img/IMG_0001.JPG') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  background: rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: #b57edc;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Navbar trasparente */
+.navbar.transparent {
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+.navbar.transparent a {
+  color: #fff;
+}
+
+/* Hero section */
+.hero {
+  background: url('img/IMG_0001.JPG') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  background: rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: #b57edc;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #9b59b6;
+}
