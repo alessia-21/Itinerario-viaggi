@@ -256,3 +256,18 @@ main h1 {
 main {
   min-height: 100vh; /* garantisce spazio verticale */
 }
+html, body {
+  height: 100%; /* fondamentale per Safari */
+}
+
+main {
+  flex: 1;
+  min-height: 100vh; /* assicura spazio verticale */
+  display: flex;
+  flex-direction: column;
+}
+
+#map {
+  flex: 1;              /* occupa tutto lo spazio disponibile */
+  min-height: 400px;    /* altezza minima per sicurezza */
+}
