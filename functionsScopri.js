@@ -51,5 +51,5 @@ function goBack() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  setTrip(jpDays);   // inizializza sidebar
+  setTrip(jpDaysScopri);   // inizializza sidebar
 });
