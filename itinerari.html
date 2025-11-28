@@ -2,24 +2,48 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Itinerari</title>
+  <title>Itinerari Interattivi</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Fogli di stile di Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <ul>
-    <li><a href="itinerari.html"><img src="img/IMG_0008.JPG" alt="">Itinerari</a></li>
+      <li><a href="itinerari.html"><img src="img/IMG_0008.JPG" alt="">Itinerari</a></li>
       <li><a href="scopri.html"><img src="img/IMG_0009.JPG" alt="">Scopri di più</a></li>
     </ul>
   </nav>
 
   <main>
     <h1>Itinerari disponibili</h1>
-    <ul class="lista-itinerari">
-      <li><a href="giappone.html">Giappone 2026</a></li>
-      <!-- in futuro puoi aggiungere Londra, Parigi, ecc. -->
-    </ul>
+    <div id="map"></div>
   </main>
+
+  <!-- Script di Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Inizializza la mappa centrata sul mondo
+    var map = L.map('map').setView([20, 0], 2);
+
+    // Aggiungi il layer della mappa (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Itinerario Giappone
+    L.marker([35.6895, 139.6917]).addTo(map)
+      .bindPopup('<a href="giappone.html">Giappone 2026</a>');
+
+    // Itinerario Londra
+    L.marker([51.5074, -0.1278]).addTo(map)
+      .bindPopup('<a href="londra.html">Londra</a>');
+
+    // Itinerario Parigi
+    L.marker([48.8566, 2.3522]).addTo(map)
+      .bindPopup('<a href="parigi.html">Parigi</a>');
+  </script>
 </body>
 </html>
