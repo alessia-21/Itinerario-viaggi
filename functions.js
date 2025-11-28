@@ -22,19 +22,22 @@ export function openDay(day) {
   dayView.style.display = 'block';
 
   const dati = currentTrip[day];
+
+  
   let html = `
     <div class="day-header">
-      <button id="back-btn" class="back-btn">← Torna indietro</button>
+      <button id="back-btn" class="back-btn">←</button>
       <h2>${dati.titolo}</h2>
     </div>
     <ul class="agenda">
   `;
 
   dati.attivita.forEach(item => {
-    html += `<li>
-      <span class="ora">${item.ora}</span> – ${item.attivita}
-      ${item.nota ? `<div class="nota">(${item.nota})</div>` : ""}
-    </li>`;
+  
+  html += `<li>
+  <span class="ora">${item.ora}</span> – ${item.attivita}
+  ${item.nota ? `<span class="nota"> *<em>${item.nota}</em></span>` : ""}
+</li>`;
   });
 
   html += `</ul>`;
@@ -49,33 +52,6 @@ function goBack() {
   document.getElementById('default-view').style.display = 'block';
 }
 
-/* --- Carosello --- */
-function initCarosello() {
-  const slides = document.querySelector(".slides");
-  if (!slides) return;
-
-  const images = document.querySelectorAll(".slides img");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-
-  let index = 0;
-
-  function showSlide(i) {
-    index = (i + images.length) % images.length;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  prevBtn.addEventListener("click", () => showSlide(index - 1));
-  nextBtn.addEventListener("click", () => showSlide(index + 1));
-
-  // mostra subito la prima slide
-  showSlide(0);
-
-  // autoplay ogni 5 secondi
-  setInterval(() => showSlide(index + 1), 5000);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   setTrip(jpDays);   // inizializza sidebar
-  initCarosello();         // inizializza carosello se presente
 });

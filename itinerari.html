@@ -7,15 +7,19 @@
 
   <!-- Fogli di stile di Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- icone -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="itinerari.html"><img src="img/IMG_0008.JPG" alt="">Itinerari</a></li>
-      <li><a href="scopri.html"><img src="img/IMG_0009.JPG" alt="">Scopri di più</a></li>
-    </ul>
-  </nav>
+<nav class="navbar transparent">
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="itinerari.html"><i class="fas fa-map-marked-alt"></i> Itinerari</a></li>
+    <li><a href="scopri.html"><i class="fas fa-info-circle"></i> Scopri di più</a></li>
+  </ul>
+</nav>
+
 
   <main>
     <h1>Itinerari disponibili</h1>
@@ -37,13 +41,6 @@
     L.marker([35.6895, 139.6917]).addTo(map)
       .bindPopup('<a href="giappone.html">Giappone 2026</a>');
 
-    // Itinerario Londra
-    L.marker([51.5074, -0.1278]).addTo(map)
-      .bindPopup('<a href="londra.html">Londra</a>');
-
-    // Itinerario Parigi
-    L.marker([48.8566, 2.3522]).addTo(map)
-      .bindPopup('<a href="parigi.html">Parigi</a>');
   </script>
 </body>
 </html>

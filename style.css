@@ -133,8 +133,9 @@ main {
 
 .day-header {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column; /* freccia sopra al titolo */
+  align-items: flex-start; /* allinea a sinistra */
+  gap: 5px;
 }
 
 .back-btn {
@@ -178,61 +179,6 @@ main {
   text-decoration: none;
   color: #3d0066;
   font-weight: bold;
-}
-
-.carosello {
-  position: relative;
-  max-width: 600px;
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slides img {
-  width: 100%;
-  flex-shrink: 0;
-}
-
-.carosello button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(181,126,220,0.8);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.carosello .prev {
-  left: 10px;
-}
-
-.carosello .next {
-  right: 10px;
-}
-
-.carosello button:hover {
-  background: rgba(161,104,255,0.9);
-}
-
-.slides {
-  display: flex;
-  width: 100%;              
-  transition: transform 0.5s ease-in-out;
-}
-
-.slides img {
-  width: 100%;              
-  flex-shrink: 0;          
 }
 
 body {
@@ -338,4 +284,10 @@ main {
 
 .btn-primary:hover {
   background: #9b59b6;
+}
+
+.nota {
+  margin-left: 8px;
+  font-style: italic;
+  color: #555;
 }
