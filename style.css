@@ -291,3 +291,21 @@ main {
   font-style: italic;
   color: #555;
 }
+
+/* Stile per la lista dei giorni */
+#trip-days {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trip-day-item {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.2s;
+}
+
+.trip-day-item:hover {
+  background: #f0f0f0;
+}

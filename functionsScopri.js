@@ -1,14 +1,15 @@
-// trip.js
+// functionsScopri.js
 import { jpDaysScopri } from "./utilsScopri.js";
 
 let currentTrip = jpDaysScopri;
 
 function setTrip(trip) {
   currentTrip = trip;
-  const sidebar = document.getElementById('days-list');
+  const sidebar = document.getElementById('trip-days'); // <-- nuovo id
   sidebar.innerHTML = "";
   Object.keys(currentTrip).forEach(dayKey => {
     const li = document.createElement("li");
+    li.classList.add("trip-day-item"); // nuova classe per styling
     li.textContent = `${dayKey} – ${currentTrip[dayKey].titolo}`;
     li.setAttribute("data-day", dayKey);
     li.addEventListener("click", () => openDay(dayKey));
@@ -33,7 +34,6 @@ export function openDay(day) {
     <ul class="luoghi">
   `;
 
-  // Ciclo sui luoghi invece che sulle attività
   dati.luoghi.forEach(l => {
     html += `<li><strong>${l.nome}</strong>: ${l.descrizione}</li>`;
   });
@@ -51,5 +51,5 @@ function goBack() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  setTrip(jpDaysScopri);   // inizializza sidebar
+  setTrip(jpDaysScopri);   // inizializza sidebar con i dati giusti
 });
