@@ -1,28 +1,26 @@
-/* Reset e font */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Nunito', sans-serif;
-  background: #fdfdfd;
-  color: #333;
+  background: #fdfdfd; /* sfondo bianco */
+  color: #333;         /* testo più leggibile */
+  overflow-x: hidden; /* elimina scrollbar orizzontale */
 }
 
-/* Titoli */
 h1, h2, h3 {
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
 }
 
-/* Paragrafi */
 p {
+  font-family: 'Nunito', sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #4b0082;
+  color: #4b0082; /* viola scuro leggibile */
   margin-bottom: 1rem;
 }
 
-/* Navbar */
 .navbar {
   background-color: #333;
   padding: 10px;
@@ -45,6 +43,225 @@ p {
   height: 20px;
   margin-right: 5px;
 }
+
+.container {
+  display: flex;
+  height: calc(100vh - 60px);
+  align-items: stretch; /* forza le colonne ad avere la stessa altezza */
+}
+
+aside {
+  height: 100%; /* riempie tutta l’altezza disponibile */
+}
+
+aside {
+  flex: 3;
+  background-color: #b57edc;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+aside h1 {
+  color: white;
+  margin-top: 80;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside li {
+  background: #d8b9f2;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+aside li:hover {
+  background: #c19ee0;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f5f0fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.gallery img {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  aside {
+    width: 100%;
+    height: auto;
+  }
+
+  main {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery img {
+    width: 80px;
+  }
+}
+
+#day-view {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: linear-gradient(135deg, #e6ccff, #d1b3ff, #b399ff);
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: none;
+  z-index: 999;
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column; /* freccia sopra al titolo */
+  align-items: flex-start; /* allinea a sinistra */
+  gap: 5px;
+}
+
+.back-btn {
+  background-color: #c8a2ff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #a678ff;
+}
+
+.home {
+  padding: 3rem;
+  text-align: center;
+}
+
+.lista-itinerari {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-itinerari li {
+  background: #d8b9f2;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.lista-itinerari li:hover {
+  background: #c19ee0;
+}
+
+.lista-itinerari a {
+  text-decoration: none;
+  color: #3d0066;
+  font-weight: bold;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+main {
+  min-height: 100vh; /* garantisce spazio verticale */
+}
+html, body {
+  height: 100%; /* fondamentale per Safari */
+}
+
+main {
+  flex: 1;
+  min-height: 100vh; /* assicura spazio verticale */
+  display: flex;
+  flex-direction: column;
+}
+
+#map {
+  flex: 1;              /* occupa tutto lo spazio disponibile */
+  min-height: 400px;    /* altezza minima per sicurezza */
+}
+
+
+.hero {
+  background: url("img/IMG_0001.JPG") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  background: rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: #b57edc;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Navbar trasparente */
 .navbar.transparent {
   background: rgba(0,0,0,0.4);
   position: absolute;
@@ -56,102 +273,69 @@ p {
   color: #fff;
 }
 
-/* Layout principale */
-.container {
+/* Hero section */
+.hero {
+  background: url('img/IMG_0001.JPG') center/cover no-repeat;
+  height: 100vh;
   display: flex;
-  height: calc(100vh - 60px);
-  align-items: stretch;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
 }
 
-/* Colonna sinistra */
-aside {
-  flex: 2;
-  background-color: #b57edc;
+.hero-content {
+  background: rgba(0,0,0,0.5);
   padding: 2rem;
-  overflow-y: auto;
+  border-radius: 10px;
 }
-aside h1 {
-  color: white;
-  margin-top: 0;
+
+.btn-primary {
+  background: linear-gradient(135deg, #4b0082, #6a0dad); /* viola scuro elegante */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px; /* pill shape */
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
 }
-aside ul {
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #6a0dad, #8a2be2); /* tonalità più chiara al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.nota {
+  margin-left: 8px;
+  font-style: italic;
+  color: #555;
+}
+
+/* Stile per la lista dei giorni */
+#trip-days {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-aside li {
-  background: #d8b9f2;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 8px;
+
+.trip-day-item {
   cursor: pointer;
-  transition: background 0.3s;
-}
-aside li:hover {
-  background: #c19ee0;
-}
-
-/* Colonna destra */
-main {
-  flex: 2;
-  padding: 2rem;
-  background-color: #f5f0fa;
-  overflow-y: auto;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.2s;
 }
 
-/* Galleria immagini */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 1rem;
-}
-.gallery img {
-  width: 140px;
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+.trip-day-item:hover {
+  background: #f0f0f0;
 }
 
-/* Overlay giorno selezionato */
-#day-view {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 60px);
-  background: linear-gradient(135deg, #e6ccff, #d1b3ff, #b399ff);
-  overflow-y: auto;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 999;
-  display: none;
-  color: #333;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-  aside, main {
-    width: 100%;
-    height: auto;
-  }
-  .gallery {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .gallery img {
-    width: 100px;
-  }
-}
-
-/* Pulsanti e dettagli */
-.back-btn, .map-btn {
-  background: linear-gradient(135deg, #4b0082, #6a0dad);
+.map-btn {
+  background: linear-gradient(135deg, #4b0082, #6a0dad); /* viola scuro elegante */
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -163,62 +347,9 @@ main {
   box-shadow: 0 3px 8px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
 }
-.back-btn:hover, .map-btn:hover {
+
+.map-btn:hover {
   background: linear-gradient(135deg, #6a0dad, #8a2be2);
   transform: translateY(-2px);
 }
 
-/* Link itinerari */
-.lista-itinerari {
-  list-style: none;
-  padding: 0;
-}
-.lista-itinerari li {
-  background: #d8b9f2;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 8px;
-  transition: background 0.3s;
-}
-.lista-itinerari li:hover {
-  background: #c19ee0;
-}
-.lista-itinerari a {
-  text-decoration: none;
-  color: #3d0066;
-  font-weight: bold;
-}
-
-/* Hero */
-.hero {
-  background: url('img/IMG_0001.JPG') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-.hero-content {
-  background: rgba(0,0,0,0.5);
-  padding: 2rem;
-  border-radius: 10px;
-}
-.btn-primary {
-  background: linear-gradient(135deg, #4b0082, #6a0dad);
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: all 0.3s ease;
-}
-.btn-primary:hover {
-  background: linear-gradient(135deg, #6a0dad, #8a2be2);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-}
