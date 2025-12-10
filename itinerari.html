@@ -23,6 +23,8 @@
   </ul>
 </nav>
 
+
+  <main>
 <main>
   <h1>
     <i class="fas fa-map-marked-alt"></i> 
@@ -32,21 +34,27 @@
   <div id="map"></div>
 </main>
 
-<!-- Script di Leaflet -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  // Inizializza la mappa centrata sul mondo
-  var map = L.map('map').setView([20, 0], 2);
 
-  // Aggiungi il layer della mappa (OpenStreetMap)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
+    <div id="map"></div>
+  </main>
 
-  // Itinerario Giappone
-  L.marker([35.6895, 139.6917]).addTo(map)
-    .bindPopup('<a href="giappone.html" class="map-btn"><i class="fas fa-plane"></i> Giappone 2026</a>');
-</script>
+  <!-- Script di Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Inizializza la mappa centrata sul mondo
+    var map = L.map('map').setView([20, 0], 2);
+
+    // Aggiungi il layer della mappa (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Itinerario Giappone
+L.marker([35.6895, 139.6917]).addTo(map)
+  .bindPopup('<a href="giappone.html" class="map-btn"><i class="fas fa-plane"></i> Giappone 2026</a>');
+
+
+
+  </script>
 </body>
-
 </html>

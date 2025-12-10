@@ -5,7 +5,6 @@ html, body {
   font-family: 'Nunito', sans-serif;
   background: #fdfdfd; /* sfondo bianco */
   color: #333;         /* testo più leggibile */
-  overflow-x: hidden; /* elimina scrollbar orizzontale */
 }
 
 h1, h2, h3 {
@@ -47,11 +46,6 @@ p {
 .container {
   display: flex;
   height: calc(100vh - 60px);
-  align-items: stretch; /* forza le colonne ad avere la stessa altezza */
-}
-
-aside {
-  height: 100%; /* riempie tutta l’altezza disponibile */
 }
 
 aside {
@@ -139,13 +133,15 @@ main {
   top: 60px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+  height: -webkit-fill-available;
   background: linear-gradient(135deg, #e6ccff, #d1b3ff, #b399ff);
   overflow-y: auto;
   padding: 20px;
+  color: #333;
   box-sizing: border-box;
-  display: none;
   z-index: 999;
+  display: none;
 }
 
 .day-header {
@@ -235,16 +231,14 @@ main {
   min-height: 400px;    /* altezza minima per sicurezza */
 }
 
-
 .hero {
-  background: url("img/IMG_0001.JPG") center/cover no-repeat;
+  background: url('img/IMG_0001.JPG') center/cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  position: relative;
 }
 
 .hero-content {
