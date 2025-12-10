@@ -138,15 +138,13 @@ main {
   top: 60px;
   left: 0;
   width: 100%;
-  min-height: calc(100vh - 60px);
-  height: -webkit-fill-available;
+  height: calc(100vh - 60px);
   background: linear-gradient(135deg, #e6ccff, #d1b3ff, #b399ff);
   overflow-y: auto;
   padding: 20px;
-  color: #333;
   box-sizing: border-box;
-  z-index: 999;
   display: none;
+  z-index: 999;
 }
 
 .day-header {
