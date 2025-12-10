@@ -46,6 +46,11 @@ p {
 .container {
   display: flex;
   height: calc(100vh - 60px);
+  align-items: stretch; /* forza le colonne ad avere la stessa altezza */
+}
+
+aside {
+  height: 100%; /* riempie tutta l’altezza disponibile */
 }
 
 aside {
