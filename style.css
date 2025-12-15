@@ -5,7 +5,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-x: hidden; /* evita il bordo a destra */
+  overflow-x: hidden; /* evita bordi a destra */
   font-family: 'Nunito', sans-serif;
   background: #fdfdfd;
   color: #333;
@@ -48,12 +48,6 @@ p {
   font-weight: bold;
 }
 
-.navbar img {
-  height: 20px;
-  margin-right: 5px;
-}
-
-/* Navbar trasparente sopra la hero */
 .navbar.transparent {
   background: rgba(0,0,0,0.4);
   position: absolute;
@@ -68,12 +62,12 @@ p {
 
 
 /* --------------------------------------------------
-   HERO SECTION (con fix bordo destro)
+   HERO SECTION (homepage)
 -------------------------------------------------- */
 .hero {
   background: url('img/IMG_0001.JPG') center/cover no-repeat;
-  height: 100vh;       /* fallback */
-  min-height: 100svh;  /* fix per Safari iOS */
+  height: 100vh;
+  min-height: 100svh; /* fix Safari */
   width: 100%;
   display: flex;
   align-items: center;
@@ -81,7 +75,7 @@ p {
   text-align: center;
   color: white;
   position: relative;
-  overflow: hidden; /* elimina glitch ai bordi */
+  overflow: hidden; /* elimina bordo destro */
 }
 
 .hero-content {
@@ -90,7 +84,6 @@ p {
   border-radius: 10px;
 }
 
-/* Pulsante principale */
 .btn-primary {
   background: linear-gradient(135deg, #4b0082, #6a0dad);
   color: #fff;
@@ -112,11 +105,11 @@ p {
 
 
 /* --------------------------------------------------
-   LAYOUT GENERALE (aside + main)
+   LAYOUT ITINERARIO (sidebar + contenuto)
 -------------------------------------------------- */
 .container {
   display: flex;
-  height: calc(100vh - 60px);
+  min-height: 100vh;
 }
 
 aside {
@@ -148,20 +141,24 @@ aside li:hover {
   background: #c19ee0;
 }
 
+
+/* --------------------------------------------------
+   MAIN CONTENT (pagina itinerario)
+-------------------------------------------------- */
 main {
   flex: 1;
   padding: 2rem;
   background-color: #f5f0fa;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
   min-height: 100vh;
 }
 
+#default-view {
+  width: 100%;
+}
 
-/* --------------------------------------------------
-   GALLERY
--------------------------------------------------- */
 .gallery {
   display: flex;
   flex-direction: column;
@@ -178,52 +175,17 @@ main {
 
 
 /* --------------------------------------------------
-   RESPONSIVE
--------------------------------------------------- */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-
-  aside {
-    width: 100%;
-    height: auto;
-  }
-
-  main {
-    width: 100%;
-    align-items: flex-start;
-  }
-
-  .gallery {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .gallery img {
-    width: 80px;
-  }
-}
-
-
-/* --------------------------------------------------
-   DAY VIEW (overlay giornaliero)
+   DAY VIEW (dettaglio giorno)
 -------------------------------------------------- */
 #day-view {
-  position: fixed;
-  top: 60px;
-  left: 0;
+  position: relative; /* prima era fixed → causava problemi */
   width: 100%;
-  min-height: calc(100vh - 60px);
-  height: -webkit-fill-available;
+  min-height: 100vh;
   background: linear-gradient(135deg, #e6ccff, #d1b3ff, #b399ff);
   overflow-y: auto;
   padding: 20px;
   color: #333;
   box-sizing: border-box;
-  z-index: 999;
   display: none;
 }
 
@@ -249,9 +211,15 @@ main {
   background-color: #a678ff;
 }
 
+.nota {
+  margin-left: 8px;
+  font-style: italic;
+  color: #555;
+}
+
 
 /* --------------------------------------------------
-   LISTE ITINERARI
+   LISTE ITINERARI (pagina generale)
 -------------------------------------------------- */
 .home {
   padding: 3rem;
@@ -283,13 +251,8 @@ main {
 
 
 /* --------------------------------------------------
-   MAPPA
+   MAPPA (pagina mappe)
 -------------------------------------------------- */
-main h1 {
-  text-align: center;
-  margin: 20px 0;
-}
-
 #map {
   flex: 1;
   min-height: 400px;
@@ -298,10 +261,6 @@ main h1 {
   border-radius: 8px;
 }
 
-
-/* --------------------------------------------------
-   BOTTONI MAPPA
--------------------------------------------------- */
 .map-btn {
   background: linear-gradient(135deg, #4b0082, #6a0dad);
   color: #fff;
@@ -319,4 +278,32 @@ main h1 {
 .map-btn:hover {
   background: linear-gradient(135deg, #6a0dad, #8a2be2);
   transform: translateY(-2px);
+}
+
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery img {
+    width: 80px;
+  }
 }
