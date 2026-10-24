@@ -53,7 +53,8 @@ export function parseTrip(testo) {
 }
 
 export async function loadTrip(id) {
-  const res = await fetch(`data/${id}.txt`);
+  // no-cache: il browser controlla sempre se il file è cambiato (niente dati vecchi dopo un aggiornamento)
+  const res = await fetch(`data/${id}.txt`, { cache: "no-cache" });
   if (!res.ok) throw new Error(`Viaggio "${id}" non trovato`);
   const trip = parseTrip(await res.text());
   trip.id = id;
@@ -62,7 +63,7 @@ export async function loadTrip(id) {
 
 // data/index.txt: un id di viaggio per riga (l'ordine è quello mostrato)
 export async function loadAllTrips() {
-  const res = await fetch("data/index.txt");
+  const res = await fetch("data/index.txt", { cache: "no-cache" });
   const ids = (await res.text())
     .split(/\r?\n/).map(s => s.trim())
     .filter(s => s && !s.startsWith("//"));
