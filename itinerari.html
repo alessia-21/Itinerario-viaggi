@@ -38,9 +38,8 @@
     var map = L.map('map').setView([20, 0], 2);
 
     // Aggiungi il layer della mappa (OpenStreetMap)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap contributors © CARTO',
-      subdomains: 'abcd',
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
       maxZoom: 19
     }).addTo(map);
 
@@ -62,6 +61,11 @@
         (t.periodo ? '<br><small>' + t.periodo + '</small>' : '')
       );
     });
+
+    // Inquadra tutti i segnalini; se sono pochi/vicini non zooma troppo
+    if (trips.length) {
+      map.fitBounds(trips.map(t => [t.lat, t.lng]), { padding: [60, 60], maxZoom: 5 });
+    }
   </script>
 </body>
 
