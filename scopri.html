@@ -2,11 +2,11 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Itinerari</title>
   <link rel="stylesheet" href="style.css">
   <!-- icone -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
   <nav class="navbar transparent">
@@ -17,13 +17,27 @@
   </ul>
 </nav>
 
-
   <main>
     <h1>Itinerari disponibili</h1>
-    <ul class="lista-itinerari">
-      <li><a href="scopriJp.html">Giappone 2026</a></li>
-      <!-- in futuro puoi aggiungere Londra, Parigi, ecc. -->
-    </ul>
+    <!-- La lista si costruisce da sola: compaiono i viaggi che hanno almeno un luogo "+" in data/<id>.txt -->
+    <ul class="lista-itinerari" id="lista-itinerari"></ul>
   </main>
+
+  <script type="module">
+    import { loadAllTrips } from "./parser.js";
+
+    const lista = document.getElementById("lista-itinerari");
+    const trips = await loadAllTrips();
+
+    trips
+      .filter(t => Object.values(t.giorni).some(g => g.luoghi.length))
+      .forEach(t => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="scopriViaggio.html?trip=${t.id}">${t.nome}</a>`;
+        lista.appendChild(li);
+      });
+
+    if (!lista.children.length) lista.innerHTML = "<li>Nessun itinerario disponibile.</li>";
+  </script>
 </body>
 </html>

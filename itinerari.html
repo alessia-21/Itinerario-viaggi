@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<meta charset="UTF-8">
-  	<title>Itinerari Interattivi</title>
-  	<link rel="stylesheet" href="style.css">
-  	<!-- Fogli di stile di Leaflet -->
-  	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <!-- icone -->
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Itinerari Interattivi</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fogli di stile di Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- icone -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<nav class="navbar transparent">
-  		<ul>
-    		<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-    		<li><a href="itinerari.html"><i class="fas fa-map-marked-alt"></i> Itinerari</a></li>
-    		<li><a href="scopri.html"><i class="fas fa-info-circle"></i> Scopri di più</a></li>
-  		</ul>
-	</nav>
-	<main>
-  		<h1>
-    		<i class="fas fa-map-marked-alt"></i> 
-    		Scegli la tua destinazione sulla mappa 
-    		<i class="fas fa-location-dot"></i>
-  		</h1>
-  		<div id="map"></div>
-	</main>
+  <nav class="navbar transparent">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="itinerari.html"><i class="fas fa-map-marked-alt"></i> Itinerari</a></li>
+      <li><a href="scopri.html"><i class="fas fa-info-circle"></i> Scopri di più</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>
+      <i class="fas fa-map-marked-alt"></i>
+      Scegli la tua destinazione sulla mappa
+      <i class="fas fa-location-dot"></i>
+    </h1>
+    <div id="map"></div>
+  </main>
 
-  	<!-- Script di Leaflet -->
-  	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  	<script>
-    	// Inizializza la mappa centrata sul mondo
-    	var map = L.map('map').setView([20, 0], 2);
+  <!-- Script di Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script type="module">
+    import { loadAllTrips } from "./parser.js";
 
-    	// Aggiungi il layer della mappa (OpenStreetMap)
-    	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      	attribution: '© OpenStreetMap contributors'
-    	}).addTo(map);
+    // Inizializza la mappa centrata sul mondo
+    var map = L.map('map').setView([20, 0], 2);
 
-    	// Itinerario Giappone
-		L.marker([35.6895, 139.6917]).addTo(map).bindPopup('<a href="giappone.html" class="map-btn"><i class="fas fa-			plane"></i> Giappone 2026</a>');
-  		
-  	</script>
+    // Aggiungi il layer della mappa (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Un marker per ogni viaggio elencato in data/index.txt
+    const trips = await loadAllTrips();
+    trips.forEach(t => {
+      L.marker([t.lat, t.lng]).addTo(map).bindPopup(
+        '<a href="viaggio.html?trip=' + t.id + '" class="map-btn">' +
+        '<i class="fas fa-plane"></i> ' + t.nome + '</a>' +
+        (t.periodo ? '<br><small>' + t.periodo + '</small>' : '')
+      );
+    });
+  </script>
 </body>
 
 </html>
