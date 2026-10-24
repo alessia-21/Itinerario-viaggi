@@ -38,14 +38,25 @@
     var map = L.map('map').setView([20, 0], 2);
 
     // Aggiungi il layer della mappa (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors © CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
     }).addTo(map);
+
+    // Pin viola (stile in style.css)
+    const pin = L.divIcon({
+      className: 'pin',
+      html: '<i class="fas fa-location-dot"></i>',
+      iconSize: [34, 34],
+      iconAnchor: [17, 34],
+      popupAnchor: [0, -30]
+    });
 
     // Un marker per ogni viaggio elencato in data/index.txt
     const trips = await loadAllTrips();
     trips.forEach(t => {
-      L.marker([t.lat, t.lng]).addTo(map).bindPopup(
+      L.marker([t.lat, t.lng], { icon: pin }).addTo(map).bindPopup(
         '<a href="viaggio.html?trip=' + t.id + '" class="map-btn">' +
         '<i class="fas fa-plane"></i> ' + t.nome + '</a>' +
         (t.periodo ? '<br><small>' + t.periodo + '</small>' : '')

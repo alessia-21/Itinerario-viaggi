@@ -2,6 +2,11 @@ import { loadTrip, tripFromUrl } from "./parser.js";
 
 let currentTrip = {};
 
+// "giorno3" -> "03"
+function numeroGiorno(dayKey) {
+  return dayKey.replace(/\D/g, "").padStart(2, "0");
+}
+
 function mostraGalleria(trip) {
   const box = document.getElementById("default-view");
   if (!trip.foto.length) return;
@@ -28,7 +33,7 @@ async function setTrip() {
     sidebar.innerHTML = "";
     Object.keys(currentTrip).forEach(dayKey => {
       const li = document.createElement("li");
-      li.textContent = `${dayKey} – ${currentTrip[dayKey].titolo}`;
+      li.innerHTML = `<span class="num">${numeroGiorno(dayKey)}</span><span class="tit">${currentTrip[dayKey].titolo}</span>`;
       li.setAttribute("data-day", dayKey);
       li.addEventListener("click", () => openDay(dayKey));
       sidebar.appendChild(li);
@@ -56,8 +61,8 @@ export function openDay(day) {
 
   dati.attivita.forEach(item => {
     html += `<li>
-  <span class="ora">${item.ora}</span> – ${item.attivita}
-  ${item.nota ? `<span class="nota"> *<em>${item.nota}</em></span>` : ""}
+  <span class="ora">${item.ora}</span>
+  <span class="testo">${item.attivita}${item.nota ? `<span class="nota">${item.nota}</span>` : ""}</span>
 </li>`;
   });
 
@@ -66,7 +71,7 @@ export function openDay(day) {
   if (dati.noteFinali.length) {
     html += `<ul class="agenda note-finali">`;
     dati.noteFinali.forEach(n => {
-      html += `<li><span class="nota"><em>${n}</em></span></li>`;
+      html += `<li><span class="nota">${n}</span></li>`;
     });
     html += `</ul>`;
   }

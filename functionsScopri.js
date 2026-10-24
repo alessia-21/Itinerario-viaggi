@@ -37,7 +37,7 @@ async function setTrip() {
     Object.keys(currentTrip).forEach(dayKey => {
       const li = document.createElement("li");
       li.classList.add("trip-day-item");
-      li.textContent = `${dayKey} – ${currentTrip[dayKey].titolo}`;
+      li.innerHTML = `<span class="num">${dayKey.replace(/\D/g, "").padStart(2, "0")}</span><span class="tit">${currentTrip[dayKey].titolo}</span>`;
       li.setAttribute("data-day", dayKey);
       li.addEventListener("click", () => openDay(dayKey));
       sidebar.appendChild(li);
@@ -65,7 +65,7 @@ export function openDay(day) {
   `;
 
   dati.luoghi.forEach(l => {
-    html += `<li><strong>${l.nome}</strong>: ${l.descrizione}</li>`;
+    html += `<li><strong>${l.nome}</strong><span>${l.descrizione}</span></li>`;
   });
 
   html += `</ul>`;
