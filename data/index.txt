@@ -1,5 +1,7 @@
 giappone
+tokyo
 madrid
+belgio-olanda
 olanda
 lisbona
 praga
@@ -7,4 +9,8 @@ grecia
 manchester
 dublino
 londra
+londra2023
 berlino
+parigi
+monaco
+edimburgo
