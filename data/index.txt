@@ -1,5 +1,6 @@
 giappone
 tokyo
+atene
 madrid
 belgio-olanda
 olanda
@@ -10,6 +11,7 @@ manchester
 dublino
 londra
 londra2023
+londra-dicembre
 berlino
 parigi
 monaco
