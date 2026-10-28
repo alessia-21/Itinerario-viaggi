@@ -52,14 +52,25 @@
       popupAnchor: [0, -30]
     });
 
-    // Un marker per ogni viaggio elencato in data/index.txt
+    // Un marker per ogni zona: i viaggi vicini tra loro (es. due viaggi a Tokyo)
+    // finiscono nello stesso marker, con un pulsante per ciascuno
     const trips = await loadAllTrips();
+    const gruppi = [];
     trips.forEach(t => {
-      L.marker([t.lat, t.lng], { icon: pin }).addTo(map).bindPopup(
+      let g = gruppi.find(g => Math.abs(g.lat - t.lat) < 0.5 && Math.abs(g.lng - t.lng) < 0.5);
+      if (!g) { g = { lat: t.lat, lng: t.lng, trips: [] }; gruppi.push(g); }
+      g.trips.push(t);
+    });
+
+    gruppi.forEach(g => {
+      const html = g.trips.map(t =>
+        '<div class="popup-viaggio">' +
         '<a href="viaggio.html?trip=' + t.id + '" class="map-btn">' +
         '<i class="fas fa-plane"></i> ' + t.nome + '</a>' +
-        (t.periodo ? '<br><small>' + t.periodo + '</small>' : '')
-      );
+        (t.periodo ? '<br><small>' + t.periodo + '</small>' : '') +
+        '</div>'
+      ).join('');
+      L.marker([g.lat, g.lng], { icon: pin }).addTo(map).bindPopup(html);
     });
 
     // Inquadra tutti i segnalini; se sono pochi/vicini non zooma troppo

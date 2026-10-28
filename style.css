@@ -528,3 +528,6 @@ main > h1 {
   .hero-content { padding-bottom: 8vh; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* più viaggi nello stesso marker della mappa */
+.popup-viaggio + .popup-viaggio { margin-top: .6rem; }
